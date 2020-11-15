@@ -1,25 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
-export default function Card() {
+export default function Card(props) {
   return (
     <View style={styles.container}>
       <View style={styles.cover}>
-        <Image
-          source={require("../assets/background2.jpg")}
-          style={styles.image}
-        />
-        <Text style={styles.title}>Styled Components</Text>
+        <Image source={props.image} style={styles.image} />
+        <Text style={styles.title}>{props.title}</Text>
       </View>
 
       <View style={styles.content}>
-        <Image
-          source={require("../assets/logo-react.png")}
-          style={styles.logo}
-        />
+        <Image source={props.logo} style={styles.logo} />
         <View style={styles.wrapper}>
-          <Text style={styles.caption}>React Native</Text>
-          <Text style={styles.subtitle}>5 of 12 sections</Text>
+          <Text style={styles.caption}>{props.caption}</Text>
+          <Text style={styles.subtitle}>{props.subtitle}</Text>
         </View>
       </View>
     </View>

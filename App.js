@@ -1,20 +1,47 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  View,
+  Image,
+  ScrollView
+} from "react-native";
 import Card from "./component/Card";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <View style={styles.titleBar}>
-        <Image source={require("./assets/avatar.jpg")} style={styles.avatar} />
-        <Text style={styles.title}>Welcome,</Text>
-        <Text style={styles.name}>Tolu</Text>
-      </View>
-      <Text style={styles.subtitle}>Continue Learning</Text>
-      <Card />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <StatusBar style="auto" />
+        <View style={styles.titleBar}>
+          <Image
+            source={require("./assets/avatar.jpg")}
+            style={styles.avatar}
+          />
+          <Text style={styles.title}>Welcome,</Text>
+          <Text style={styles.name}>Tolu</Text>
+        </View>
+        <Text style={styles.subtitle}>Continue Learning</Text>
+        <ScrollView horizontal>
+          <Card
+            title="Styled Component"
+            image={require("./assets/background2.jpg")}
+            logo={require("./assets/logo-react.png")}
+            caption="React Native"
+            subtitle="5 of 12 sections"
+          />
+          <Card
+            title="Styled Component"
+            image={require("./assets/background2.jpg")}
+            logo={require("./assets/logo-react.png")}
+            caption="React Native"
+            subtitle="5 of 12 sections"
+          />
+        </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
