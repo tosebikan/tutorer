@@ -8,8 +8,9 @@ import {
   Image,
   ScrollView
 } from "react-native";
-import Card from "./component/Card";
+import Card from "./components/Card";
 import * as Icon from "@expo/vector-icons";
+import { NotificationIcon } from "./components/Icons";
 
 export default function App() {
   return (
@@ -23,7 +24,9 @@ export default function App() {
           />
           <Text style={styles.title}>Welcome,</Text>
           <Text style={styles.name}>Tolu</Text>
-          <Icon.Ionicons name="ios-notifications" />
+          <NotificationIcon
+            style={{ position: "absolute", right: 20, top: 5 }}
+          />
         </View>
         <Text style={styles.subtitle}>Continue Learning</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
