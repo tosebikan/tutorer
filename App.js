@@ -9,6 +9,7 @@ import {
   ScrollView
 } from "react-native";
 import Card from "./component/Card";
+import * as Icon from "@expo/vector-icons";
 
 export default function App() {
   return (
@@ -22,9 +23,10 @@ export default function App() {
           />
           <Text style={styles.title}>Welcome,</Text>
           <Text style={styles.name}>Tolu</Text>
+          <Icon.Ionicons name="ios-notifications" />
         </View>
         <Text style={styles.subtitle}>Continue Learning</Text>
-        <ScrollView horizontal>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <Card
             title="Styled Component"
             image={require("./assets/background2.jpg")}
