@@ -11,6 +11,7 @@ import {
 import Card from "./components/Card";
 import * as Icon from "@expo/vector-icons";
 import { NotificationIcon } from "./components/Icons";
+import Logo from "./components/Logo";
 
 export default function App() {
   return (
@@ -28,8 +29,24 @@ export default function App() {
             style={{ position: "absolute", right: 20, top: 5 }}
           />
         </View>
+        <ScrollView
+          style={{
+            paddingHorizontal: 20,
+            paddingVertical: 20,
+            paddingLeft: 12,
+            paddingTop: 30
+          }}
+          horizontal
+        >
+          <Logo text="Framer X" logo={require("./assets/logo-framerx.png")} />
+          <Logo text="Framer X" logo={require("./assets/logo-framerx.png")} />
+        </ScrollView>
         <Text style={styles.subtitle}>Continue Learning</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={{ paddingBottom: 30 }}
+        >
           <Card
             title="Styled Component"
             image={require("./assets/background2.jpg")}
@@ -83,6 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 18,
     marginLeft: 20,
-    marginTop: 50
+    marginTop: 20,
+    textTransform: "uppercase"
   }
 });
