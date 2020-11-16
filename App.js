@@ -37,9 +37,11 @@ export default function App() {
             paddingTop: 30
           }}
           horizontal
+          showsHorizontalScrollIndicator={false}
         >
-          <Logo text="Framer X" logo={require('./assets/logo-framerx.png')} />
-          <Logo text="Framer X" logo={require('./assets/logo-framerx.png')} />
+          {logos.map((logo, index) => (
+            <Logo text={logo.text} logo={logo.image} key={index} />
+          ))}
         </ScrollView>
         <Text style={styles.subtitle}>Continue Learning</Text>
         <ScrollView
@@ -47,21 +49,18 @@ export default function App() {
           showsHorizontalScrollIndicator={false}
           style={{ paddingBottom: 30 }}
         >
-          <Card
-            title="Styled Component"
-            image={require('./assets/background2.jpg')}
-            logo={require('./assets/logo-react.png')}
-            caption="React Native"
-            subtitle="5 of 12 sections"
-          />
-          <Card
-            title="Styled Component"
-            image={require('./assets/background2.jpg')}
-            logo={require('./assets/logo-react.png')}
-            caption="React Native"
-            subtitle="5 of 12 sections"
-          />
+          {cards.map((card, index) => (
+            <Card
+              key={index}
+              title={card.title}
+              image={card.image}
+              logo={card.logo}
+              caption={card.caption}
+              subtitle={card.subtitle}
+            />
+          ))}
         </ScrollView>
+        <Text style={styles.subtitle}>Other courses</Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -103,3 +102,61 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase'
   }
 });
+
+const logos = [
+  {
+    image: require('./assets/logo-framerx.png'),
+    text: 'Framer X'
+  },
+  {
+    image: require('./assets/logo-figma.png'),
+    text: 'Figma'
+  },
+  {
+    image: require('./assets/logo-react.png'),
+    text: 'React'
+  },
+  {
+    image: require('./assets/logo-sketch.png'),
+    text: 'Sketch'
+  },
+  {
+    image: require('./assets/logo-swift.png'),
+    text: 'Swift'
+  },
+  {
+    image: require('./assets/logo-xcode.png'),
+    text: 'xcode'
+  }
+];
+
+const cards = [
+  {
+    title: 'Styled Component',
+    image: require('./assets/background11.jpg'),
+    logo: require('./assets/logo-react.png'),
+    caption: 'React Native',
+    subtitle: '5 of 12 sections'
+  },
+  {
+    title: 'Props & State',
+    image: require('./assets/background12.jpg'),
+    logo: require('./assets/logo-react.png'),
+    caption: 'React',
+    subtitle: '2 of 12 sections'
+  },
+  {
+    title: 'Static Data & Components',
+    image: require('./assets/background13.jpg'),
+    logo: require('./assets/logo-framerx.png'),
+    caption: 'Flutter',
+    subtitle: '3 of 12 sections'
+  },
+  {
+    title: 'Redux',
+    image: require('./assets/background14.jpg'),
+    logo: require('./assets/logo-xcode.png'),
+    caption: 'Swift',
+    subtitle: '4 of 12 sections'
+  }
+];
