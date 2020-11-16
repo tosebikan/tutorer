@@ -1,5 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,11 +7,11 @@ import {
   View,
   Image,
   ScrollView
-} from "react-native";
-import Card from "./components/Card";
-import * as Icon from "@expo/vector-icons";
-import { NotificationIcon } from "./components/Icons";
-import Logo from "./components/Logo";
+} from 'react-native';
+import Card from './components/Card';
+// import * as Icon from '@expo/vector-icons';
+import { NotificationIcon } from './components/Icons';
+import Logo from './components/Logo';
 
 export default function App() {
   return (
@@ -20,13 +20,13 @@ export default function App() {
         <StatusBar style="auto" />
         <View style={styles.titleBar}>
           <Image
-            source={require("./assets/avatar.jpg")}
+            source={require('./assets/avatar.jpg')}
             style={styles.avatar}
           />
           <Text style={styles.title}>Welcome,</Text>
           <Text style={styles.name}>Tolu</Text>
           <NotificationIcon
-            style={{ position: "absolute", right: 20, top: 5 }}
+            style={{ position: 'absolute', right: 20, top: 5 }}
           />
         </View>
         <ScrollView
@@ -38,8 +38,8 @@ export default function App() {
           }}
           horizontal
         >
-          <Logo text="Framer X" logo={require("./assets/logo-framerx.png")} />
-          <Logo text="Framer X" logo={require("./assets/logo-framerx.png")} />
+          <Logo text="Framer X" logo={require('./assets/logo-framerx.png')} />
+          <Logo text="Framer X" logo={require('./assets/logo-framerx.png')} />
         </ScrollView>
         <Text style={styles.subtitle}>Continue Learning</Text>
         <ScrollView
@@ -49,15 +49,15 @@ export default function App() {
         >
           <Card
             title="Styled Component"
-            image={require("./assets/background2.jpg")}
-            logo={require("./assets/logo-react.png")}
+            image={require('./assets/background2.jpg')}
+            logo={require('./assets/logo-react.png')}
             caption="React Native"
             subtitle="5 of 12 sections"
           />
           <Card
             title="Styled Component"
-            image={require("./assets/background2.jpg")}
-            logo={require("./assets/logo-react.png")}
+            image={require('./assets/background2.jpg')}
+            logo={require('./assets/logo-react.png')}
             caption="React Native"
             subtitle="5 of 12 sections"
           />
@@ -70,37 +70,36 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0f3f5"
+    backgroundColor: '#f0f3f5'
   },
   titleBar: {
-    width: "100%",
+    width: '100%',
     marginTop: 50,
-    paddingLeft: 20,
     paddingLeft: 80
   },
   avatar: {
     height: 44,
     width: 44,
     borderRadius: 22,
-    position: "absolute",
+    position: 'absolute',
     marginLeft: 20
   },
   title: {
     fontSize: 16,
-    color: "#b8bece",
-    fontWeight: "500"
+    color: '#b8bece',
+    fontWeight: '500'
   },
   name: {
     fontSize: 20,
-    color: "#3c4560",
-    fontWeight: "bold"
+    color: '#3c4560',
+    fontWeight: 'bold'
   },
   subtitle: {
-    color: "#b8bece",
-    fontWeight: "600",
+    color: '#b8bece',
+    fontWeight: '600',
     fontSize: 18,
     marginLeft: 20,
     marginTop: 20,
-    textTransform: "uppercase"
+    textTransform: 'uppercase'
   }
 });
