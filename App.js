@@ -12,6 +12,7 @@ import Card from './components/Card';
 // import * as Icon from '@expo/vector-icons';
 import { NotificationIcon } from './components/Icons';
 import Logo from './components/Logo';
+import Course from './components/Course';
 
 export default function App() {
   return (
@@ -60,7 +61,20 @@ export default function App() {
             />
           ))}
         </ScrollView>
-        <Text style={styles.subtitle}>Other courses</Text>
+        <Text style={styles.subtitle}>Popular courses</Text>
+        {courses.map((course, id) => (
+          <Course
+            key={id}
+            image={course.image}
+            logo={course.logo}
+            subtitle={course.subtitle}
+            title={course.title}
+            avatar={course.avatar}
+            caption={course.caption}
+            name={course.name}
+            author={course.author}
+          />
+        ))}
       </ScrollView>
     </SafeAreaView>
   );
@@ -158,5 +172,45 @@ const cards = [
     logo: require('./assets/logo-xcode.png'),
     caption: 'Swift',
     subtitle: '4 of 12 sections'
+  }
+];
+
+const courses = [
+  {
+    title: 'Prototype in InVision Studio',
+    subtitle: '10 sections',
+    image: require('./assets/background13.jpg'),
+    logo: require('./assets/logo-studio.png'),
+    author: 'Meng To',
+    avatar: require('./assets/avatar.jpg'),
+    caption: 'Design and interactive prototype'
+  },
+  {
+    title: 'React for Designers',
+    subtitle: '12 sections',
+    image: require('./assets/background11.jpg'),
+    logo: require('./assets/logo-react.png'),
+    author: 'Meng To',
+    avatar: require('./assets/avatar.jpg'),
+    caption: 'Learn to design and code a React site'
+  },
+  {
+    title: 'Design and Code with Framer X',
+    subtitle: '10 sections',
+    image: require('./assets/background14.jpg'),
+    logo: require('./assets/logo-framerx.png'),
+    author: 'Meng To',
+    avatar: require('./assets/avatar.jpg'),
+    caption: 'Create powerful design and code components for your app'
+  },
+  {
+    title: 'Design System in Figma',
+    subtitle: '10 sections',
+    image: require('./assets/background6.jpg'),
+    logo: require('./assets/logo-figma.png'),
+    author: 'Meng To',
+    avatar: require('./assets/avatar.jpg'),
+    caption:
+      'Complete guide to designing a site using a collaborative design tool'
   }
 ];
