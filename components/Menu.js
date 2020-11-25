@@ -1,10 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { View, StyleSheet, Animated, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {
+  View,
+  StyleSheet,
+  Animated,
+  TouchableOpacity,
+  Dimensions
+} from 'react-native';
 import * as Icon from '@expo/vector-icons';
 
+const screenHeight = Dimensions.get('window').height;
 function Menu() {
-  // const top = useRef(new Animated.Value(0)).current;
-  const [top, setTop] = useState(new Animated.Value(900));
+  const [top] = useState(new Animated.Value(screenHeight));
 
   useEffect(() => {
     spring();
@@ -19,7 +25,7 @@ function Menu() {
 
   const close = () => {
     Animated.spring(top, {
-      toValue: 900,
+      toValue: screenHeight,
       useNativeDriver: true
     }).start();
   };
@@ -31,8 +37,8 @@ function Menu() {
           transform: [
             {
               translateY: top.interpolate({
-                inputRange: [-900, 0],
-                outputRange: [1200, 0]
+                inputRange: [-screenHeight, 0],
+                outputRange: [screenHeight, 0]
               })
             }
           ]
@@ -40,7 +46,16 @@ function Menu() {
       ]}
     >
       <View style={styles.cover} />
-      <TouchableOpacity onPress={close}>
+      <TouchableOpacity
+        onPress={close}
+        style={{
+          position: 'absolute',
+          top: 120,
+          left: '50%',
+          marginLeft: -22,
+          zIndex: 110
+        }}
+      >
         <View style={styles.close}>
           <Icon.Ionicons name="ios-close" size={44} color="tomato" />
         </View>
@@ -73,7 +88,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   content: {
-    height: 900,
+    height: screenHeight,
     backgroundColor: '#f0f3f5'
   }
 });
