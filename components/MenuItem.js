@@ -1,0 +1,25 @@
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import * as Icon from '@expo/vector-icons';
+
+function MenuItem(props) {
+  <View style={styles.container}>
+    <View style={styles.iconView}>
+      <Icon name={props.icon} />
+    </View>
+    <View style={styles.content}>
+      <Text style={styles.title}>{props.title}</Text>
+      <Text style={styles.subtitle}>{props.subtitle}</Text>
+    </View>
+  </View>;
+}
+
+export default MenuItem;
+
+const styles = StyleSheet.create({
+  container: {},
+  iconView: {},
+  content: {},
+  title: {},
+  subtitle: {}
+});
