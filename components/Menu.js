@@ -9,6 +9,7 @@ import {
   Text
 } from 'react-native';
 import * as Icon from '@expo/vector-icons';
+import MenuItem from './MenuItem';
 
 const screenHeight = Dimensions.get('window').height;
 function Menu() {

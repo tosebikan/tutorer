@@ -9,7 +9,7 @@ function MenuItem(props) {
     </View>
     <View style={styles.content}>
       <Text style={styles.title}>{props.title}</Text>
-      <Text style={styles.subtitle}>{props.subtitle}</Text>
+      <Text style={styles.text}>{props.text}</Text>
     </View>
   </View>;
 }
@@ -21,5 +21,5 @@ const styles = StyleSheet.create({
   iconView: {},
   content: {},
   title: {},
-  subtitle: {}
+  text: {}
 });
