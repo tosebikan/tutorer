@@ -19,9 +19,28 @@ function MenuItem(props) {
 export default MenuItem;
 
 const styles = StyleSheet.create({
-  container: {},
-  iconView: {},
-  content: {},
-  title: {},
-  text: {}
+  container: {
+    flexDirection: 'row',
+    marginVertical: 15
+  },
+  iconView: {
+    width: 32,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  content: {
+    paddingLeft: 20
+  },
+  title: {
+    color: '#3c4560',
+    fontSize: 24,
+    fontWeight: '600'
+  },
+  text: {
+    color: '#3c4560',
+    fontWeight: '600',
+    opacity: 0.6,
+    marginTop: 5
+  }
 });

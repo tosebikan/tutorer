@@ -141,7 +141,8 @@ const styles = StyleSheet.create({
   },
   content: {
     height: screenHeight,
-    backgroundColor: '#f0f3f5'
+    backgroundColor: '#f0f3f5',
+    padding: 50
   },
   image: {
     position: 'absolute',
