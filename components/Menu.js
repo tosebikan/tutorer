@@ -12,6 +12,29 @@ import * as Icon from '@expo/vector-icons';
 import MenuItem from './MenuItem';
 
 const screenHeight = Dimensions.get('window').height;
+
+const items = [
+  {
+    icon: 'ios-settings',
+    title: 'Account',
+    text: 'settings'
+  },
+  {
+    icon: 'ios-card',
+    title: 'Billing',
+    text: 'payments'
+  },
+  {
+    icon: 'ios-compass',
+    title: 'Learn react',
+    text: 'start course'
+  },
+  {
+    icon: 'ios-exit',
+    title: 'Log out',
+    text: 'see you soon'
+  }
+];
 function Menu() {
   const [top] = useState(new Animated.Value(screenHeight));
 
@@ -70,7 +93,16 @@ function Menu() {
           <Icon.Ionicons name="ios-close" size={44} color="tomato" />
         </View>
       </TouchableOpacity>
-      <View style={styles.content} />
+      <View style={styles.content}>
+        {items.map((item, index) => (
+          <MenuItem
+            icon={item.icon}
+            title={item.title}
+            text={item.text}
+            key={index}
+          />
+        ))}
+      </View>
     </Animated.View>
   );
 }
