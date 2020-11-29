@@ -35,7 +35,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function HomeScreen(props) {
-  const [scale, setTop] = useState(new Animated.Value(1));
+  const [scale] = useState(new Animated.Value(1));
 
   useEffect(() => {
     toggleMenu();
@@ -48,97 +48,110 @@ function HomeScreen(props) {
         useNativeDriver: true
       }).start();
     }
+
+    if (props.action === 'closeMenu') {
+      Animated.spring(scale, {
+        toValue: 1,
+        useNativeDriver: true
+      }).start();
+    }
   };
   return (
-    <Animated.View
-      style={[
-        styles.container,
-        {
-          transform: [
-            {
-              scale: scale
-            }
-          ]
-        }
-      ]}
-    >
+    <View style={styles.rootView}>
       <Menu />
-      <SafeAreaView>
-        <ScrollView>
-          <StatusBar style="auto" />
-          <View style={styles.titleBar}>
-            <TouchableOpacity
-              style={styles.avatarContainer}
-              onPress={props.openMenu}
+      <Animated.View
+        style={[
+          styles.container,
+          {
+            transform: [
+              {
+                scale: scale
+              }
+            ]
+          }
+        ]}
+      >
+        <SafeAreaView>
+          <ScrollView>
+            <StatusBar style="auto" />
+            <View style={styles.titleBar}>
+              <TouchableOpacity
+                style={styles.avatarContainer}
+                onPress={props.openMenu}
+              >
+                <Image
+                  source={require('../assets/avatar.jpg')}
+                  style={styles.avatar}
+                />
+              </TouchableOpacity>
+              <Text style={styles.title}>Welcome,</Text>
+              <Text style={styles.name}>Tolu</Text>
+              <NotificationIcon
+                style={{ position: 'absolute', right: 20, top: 5 }}
+              />
+            </View>
+            <ScrollView
+              style={{
+                paddingHorizontal: 20,
+                paddingVertical: 20,
+                paddingLeft: 12,
+                paddingTop: 30
+              }}
+              horizontal
+              showsHorizontalScrollIndicator={false}
             >
-              <Image
-                source={require('../assets/avatar.jpg')}
-                style={styles.avatar}
-              />
-            </TouchableOpacity>
-            <Text style={styles.title}>Welcome,</Text>
-            <Text style={styles.name}>Tolu</Text>
-            <NotificationIcon
-              style={{ position: 'absolute', right: 20, top: 5 }}
-            />
-          </View>
-          <ScrollView
-            style={{
-              paddingHorizontal: 20,
-              paddingVertical: 20,
-              paddingLeft: 12,
-              paddingTop: 30
-            }}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          >
-            {logos.map((logo, index) => (
-              <Logo text={logo.text} logo={logo.image} key={index} />
-            ))}
-          </ScrollView>
-          <Text style={styles.subtitle}>Continue Learning</Text>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={{ paddingBottom: 30 }}
-          >
-            {cards.map((card, index) => (
-              <Card
-                key={index}
-                title={card.title}
-                image={card.image}
-                logo={card.logo}
-                caption={card.caption}
-                subtitle={card.subtitle}
+              {logos.map((logo, index) => (
+                <Logo text={logo.text} logo={logo.image} key={index} />
+              ))}
+            </ScrollView>
+            <Text style={styles.subtitle}>Continue Learning</Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              style={{ paddingBottom: 30 }}
+            >
+              {cards.map((card, index) => (
+                <Card
+                  key={index}
+                  title={card.title}
+                  image={card.image}
+                  logo={card.logo}
+                  caption={card.caption}
+                  subtitle={card.subtitle}
+                />
+              ))}
+            </ScrollView>
+            <Text style={styles.subtitle}>Popular courses</Text>
+            {courses.map((course, id) => (
+              <Course
+                key={id}
+                image={course.image}
+                logo={course.logo}
+                subtitle={course.subtitle}
+                title={course.title}
+                avatar={course.avatar}
+                caption={course.caption}
+                name={course.name}
+                author={course.author}
               />
             ))}
           </ScrollView>
-          <Text style={styles.subtitle}>Popular courses</Text>
-          {courses.map((course, id) => (
-            <Course
-              key={id}
-              image={course.image}
-              logo={course.logo}
-              subtitle={course.subtitle}
-              title={course.title}
-              avatar={course.avatar}
-              caption={course.caption}
-              name={course.name}
-              author={course.author}
-            />
-          ))}
-        </ScrollView>
-      </SafeAreaView>
-    </Animated.View>
+        </SafeAreaView>
+      </Animated.View>
+    </View>
   );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
+  rootView: {
+    flex: 1,
+    backgroundColor: 'black'
+  },
   container: {
     flex: 1,
-    backgroundColor: 'blue'
+    backgroundColor: '#f0f3f5'
   },
   titleBar: {
     width: '100%',

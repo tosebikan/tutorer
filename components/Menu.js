@@ -65,7 +65,7 @@ function Menu(props) {
 
     if (props.action === 'openMenu') {
       Animated.spring(top, {
-        toValue: 0,
+        toValue: -54,
         useNativeDriver: true
       }).start();
     }
@@ -131,7 +131,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     width: '100%',
     height: '100%',
-    zIndex: 100
+    zIndex: 100,
+    borderRadius: 20,
+    overflow: 'hidden'
   },
   cover: {
     height: 142,
