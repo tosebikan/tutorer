@@ -8,6 +8,7 @@ import {
   Image,
   Text
 } from 'react-native';
+import { connect } from 'react-redux';
 import * as Icon from '@expo/vector-icons';
 import MenuItem from './MenuItem';
 
@@ -35,6 +36,12 @@ const items = [
     text: 'see you soon'
   }
 ];
+
+function mapStateToProps(state) {
+  return {
+    action: state.action
+  };
+}
 function Menu() {
   const [top] = useState(new Animated.Value(screenHeight));
 
@@ -107,7 +114,7 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default connect(mapStateToProps)(Menu);
 
 const styles = StyleSheet.create({
   container: {

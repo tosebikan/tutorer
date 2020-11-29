@@ -3,7 +3,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import HomeScreen from './screens/HomeScreen';
 
-const reducer = (state) => {
+const initialState = {
+  action: 'openMenu'
+};
+
+const reducer = (state = initialState) => {
   return state;
 };
 const store = createStore(reducer);
