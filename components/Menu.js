@@ -56,26 +56,20 @@ function Menu(props) {
   const [top] = useState(new Animated.Value(screenHeight));
 
   useEffect(() => {
-    spring();
-  }, []);
-
-  useEffect(() => {
     if (props.action === 'closeMenu') {
       Animated.spring(top, {
         toValue: screenHeight,
         useNativeDriver: true
       }).start();
     }
-  });
 
-  const spring = () => {
     if (props.action === 'openMenu') {
       Animated.spring(top, {
         toValue: 0,
         useNativeDriver: true
       }).start();
     }
-  };
+  });
 
   return (
     <Animated.View
