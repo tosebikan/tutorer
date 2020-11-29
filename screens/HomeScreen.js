@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
   SafeAreaView,
   View,
   Image,
-  ScrollView
+  ScrollView,
+  TouchableOpacity,
+  Animated
 } from 'react-native';
 import Card from '../components/Card';
 // import * as Icon from '@expo/vector-icons';
@@ -14,8 +16,25 @@ import { NotificationIcon } from '../components/Icons';
 import Logo from '../components/Logo';
 import Course from '../components/Course';
 import Menu from '../components/Menu';
+import { connect } from 'react-redux';
 
-export default function HomeScreen() {
+function mapStateToProps(state) {
+  return {
+    action: state.action
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    openMenu: () =>
+      dispatch({
+        type: 'OPEN_MENU'
+      })
+  };
+}
+
+function HomeScreen(props) {
+  const [height, setHeight] = useState(0);
   return (
     <View style={styles.container}>
       <Menu />
@@ -23,10 +42,15 @@ export default function HomeScreen() {
         <ScrollView>
           <StatusBar style="auto" />
           <View style={styles.titleBar}>
-            <Image
-              source={require('../assets/avatar.jpg')}
-              style={styles.avatar}
-            />
+            <TouchableOpacity
+              style={styles.avatarContainer}
+              onPress={props.openMenu}
+            >
+              <Image
+                source={require('../assets/avatar.jpg')}
+                style={styles.avatar}
+              />
+            </TouchableOpacity>
             <Text style={styles.title}>Welcome,</Text>
             <Text style={styles.name}>Tolu</Text>
             <NotificationIcon
@@ -84,6 +108,8 @@ export default function HomeScreen() {
   );
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -98,8 +124,10 @@ const styles = StyleSheet.create({
     height: 44,
     width: 44,
     borderRadius: 22,
-    position: 'absolute',
     marginLeft: 20
+  },
+  avatarContainer: {
+    position: 'absolute'
   },
   title: {
     fontSize: 16,
