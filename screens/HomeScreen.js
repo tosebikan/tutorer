@@ -24,7 +24,7 @@ export default function HomeScreen() {
           <StatusBar style="auto" />
           <View style={styles.titleBar}>
             <Image
-              source={require('./assets/avatar.jpg')}
+              source={require('../assets/avatar.jpg')}
               style={styles.avatar}
             />
             <Text style={styles.title}>Welcome,</Text>
@@ -123,27 +123,27 @@ const styles = StyleSheet.create({
 
 const logos = [
   {
-    image: require('./assets/logo-framerx.png'),
+    image: require('../assets/logo-framerx.png'),
     text: 'Framer X'
   },
   {
-    image: require('./assets/logo-figma.png'),
+    image: require('../assets/logo-figma.png'),
     text: 'Figma'
   },
   {
-    image: require('./assets/logo-react.png'),
+    image: require('../assets/logo-react.png'),
     text: 'React'
   },
   {
-    image: require('./assets/logo-sketch.png'),
+    image: require('../assets/logo-sketch.png'),
     text: 'Sketch'
   },
   {
-    image: require('./assets/logo-swift.png'),
+    image: require('../assets/logo-swift.png'),
     text: 'Swift'
   },
   {
-    image: require('./assets/logo-xcode.png'),
+    image: require('../assets/logo-xcode.png'),
     text: 'xcode'
   }
 ];
@@ -151,29 +151,29 @@ const logos = [
 const cards = [
   {
     title: 'Styled Component',
-    image: require('./assets/background11.jpg'),
-    logo: require('./assets/logo-react.png'),
+    image: require('../assets/background11.jpg'),
+    logo: require('../assets/logo-react.png'),
     caption: 'React Native',
     subtitle: '5 of 12 sections'
   },
   {
     title: 'Props & State',
-    image: require('./assets/background12.jpg'),
-    logo: require('./assets/logo-react.png'),
+    image: require('../assets/background12.jpg'),
+    logo: require('../assets/logo-react.png'),
     caption: 'React',
     subtitle: '2 of 12 sections'
   },
   {
     title: 'Static Data & Components',
-    image: require('./assets/background13.jpg'),
-    logo: require('./assets/logo-framerx.png'),
+    image: require('../assets/background13.jpg'),
+    logo: require('../assets/logo-framerx.png'),
     caption: 'Flutter',
     subtitle: '3 of 12 sections'
   },
   {
     title: 'Redux',
-    image: require('./assets/background14.jpg'),
-    logo: require('./assets/logo-xcode.png'),
+    image: require('../assets/background14.jpg'),
+    logo: require('../assets/logo-xcode.png'),
     caption: 'Swift',
     subtitle: '4 of 12 sections'
   }
@@ -183,37 +183,37 @@ const courses = [
   {
     title: 'Prototype in InVision Studio',
     subtitle: '10 sections',
-    image: require('./assets/background13.jpg'),
-    logo: require('./assets/logo-studio.png'),
+    image: require('../assets/background13.jpg'),
+    logo: require('../assets/logo-studio.png'),
     author: 'Meng To',
-    avatar: require('./assets/avatar.jpg'),
+    avatar: require('../assets/avatar.jpg'),
     caption: 'Design and interactive prototype'
   },
   {
     title: 'React for Designers',
     subtitle: '12 sections',
-    image: require('./assets/background11.jpg'),
-    logo: require('./assets/logo-react.png'),
+    image: require('../assets/background11.jpg'),
+    logo: require('../assets/logo-react.png'),
     author: 'Meng To',
-    avatar: require('./assets/avatar.jpg'),
+    avatar: require('../assets/avatar.jpg'),
     caption: 'Learn to design and code a React site'
   },
   {
     title: 'Design and Code with Framer X',
     subtitle: '10 sections',
-    image: require('./assets/background14.jpg'),
-    logo: require('./assets/logo-framerx.png'),
+    image: require('../assets/background14.jpg'),
+    logo: require('../assets/logo-framerx.png'),
     author: 'Meng To',
-    avatar: require('./assets/avatar.jpg'),
+    avatar: require('../assets/avatar.jpg'),
     caption: 'Create powerful design and code components for your app'
   },
   {
     title: 'Design System in Figma',
     subtitle: '10 sections',
-    image: require('./assets/background6.jpg'),
-    logo: require('./assets/logo-figma.png'),
+    image: require('../assets/background6.jpg'),
+    logo: require('../assets/logo-figma.png'),
     author: 'Meng To',
-    avatar: require('./assets/avatar.jpg'),
+    avatar: require('../assets/avatar.jpg'),
     caption:
       'Complete guide to designing a site using a collaborative design tool'
   }
