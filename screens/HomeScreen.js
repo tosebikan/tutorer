@@ -50,7 +50,18 @@ function HomeScreen(props) {
     }
   };
   return (
-    <Animated.View style={styles.container}>
+    <Animated.View
+      style={[
+        styles.container,
+        {
+          transform: [
+            {
+              scale: scale
+            }
+          ]
+        }
+      ]}
+    >
       <Menu />
       <SafeAreaView>
         <ScrollView>
@@ -127,7 +138,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f3f5'
+    backgroundColor: 'blue'
   },
   titleBar: {
     width: '100%',
