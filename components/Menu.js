@@ -42,7 +42,7 @@ function mapStateToProps(state) {
     action: state.action
   };
 }
-function Menu() {
+function Menu(props) {
   const [top] = useState(new Animated.Value(screenHeight));
 
   useEffect(() => {
@@ -50,10 +50,12 @@ function Menu() {
   }, []);
 
   const spring = () => {
-    Animated.spring(top, {
-      toValue: 0,
-      useNativeDriver: true
-    }).start();
+    if (props.action === 'openMenu') {
+      Animated.spring(top, {
+        toValue: 0,
+        useNativeDriver: true
+      }).start();
+    }
   };
 
   const close = () => {
