@@ -36,6 +36,8 @@ function mapDispatchToProps(dispatch) {
 
 function HomeScreen(props) {
   const [scale] = useState(new Animated.Value(1));
+  const [opacity] = useState(new Animated.Value(1));
+  const [status, setStatus] = useState('dark-content');
 
   useEffect(() => {
     toggleMenu();
@@ -47,6 +49,15 @@ function HomeScreen(props) {
         toValue: 0.9,
         useNativeDriver: true
       }).start();
+
+      Animated.timing(opacity, {
+        toValue: 0.5,
+        duration: 300,
+        easing: Easing.in(),
+        useNativeDriver: true
+      }).start();
+
+      setStatus('light');
     }
 
     if (props.action === 'closeMenu') {
@@ -54,7 +65,18 @@ function HomeScreen(props) {
         toValue: 1,
         useNativeDriver: true
       }).start();
+
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 300,
+        easing: Easing.in(),
+        useNativeDriver: true
+      }).start();
+
+      setStatus('dark');
     }
+
+    // StatusBar.setStatusBarStyle('dark');
   };
   return (
     <View style={styles.rootView}>
@@ -67,13 +89,14 @@ function HomeScreen(props) {
               {
                 scale: scale
               }
-            ]
+            ],
+            opacity: opacity
           }
         ]}
       >
         <SafeAreaView>
           <ScrollView>
-            <StatusBar style="auto" />
+            <StatusBar style={status} />
             <View style={styles.titleBar}>
               <TouchableOpacity
                 style={styles.avatarContainer}
@@ -122,19 +145,21 @@ function HomeScreen(props) {
               ))}
             </ScrollView>
             <Text style={styles.subtitle}>Popular courses</Text>
-            {courses.map((course, id) => (
-              <Course
-                key={id}
-                image={course.image}
-                logo={course.logo}
-                subtitle={course.subtitle}
-                title={course.title}
-                avatar={course.avatar}
-                caption={course.caption}
-                name={course.name}
-                author={course.author}
-              />
-            ))}
+            <View style={{ alignItems: 'center' }}>
+              {courses.map((course, id) => (
+                <Course
+                  key={id}
+                  image={course.image}
+                  logo={course.logo}
+                  subtitle={course.subtitle}
+                  title={course.title}
+                  avatar={course.avatar}
+                  caption={course.caption}
+                  name={course.name}
+                  author={course.author}
+                />
+              ))}
+            </View>
           </ScrollView>
         </SafeAreaView>
       </Animated.View>
@@ -151,7 +176,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#f0f3f5'
+    backgroundColor: '#f0f3f5',
+    borderRadius: 20,
+    overflow: 'hidden'
   },
   titleBar: {
     width: '100%',
