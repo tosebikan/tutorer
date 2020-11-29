@@ -42,12 +42,31 @@ function mapStateToProps(state) {
     action: state.action
   };
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    closeMenu: () =>
+      dispatch({
+        type: 'CLOSE_MENU'
+      })
+  };
+}
+
 function Menu(props) {
   const [top] = useState(new Animated.Value(screenHeight));
 
   useEffect(() => {
     spring();
   }, []);
+
+  useEffect(() => {
+    if (props.action === 'closeMenu') {
+      Animated.spring(top, {
+        toValue: screenHeight,
+        useNativeDriver: true
+      }).start();
+    }
+  });
 
   const spring = () => {
     if (props.action === 'openMenu') {
@@ -58,12 +77,6 @@ function Menu(props) {
     }
   };
 
-  const close = () => {
-    Animated.spring(top, {
-      toValue: screenHeight,
-      useNativeDriver: true
-    }).start();
-  };
   return (
     <Animated.View
       style={[
@@ -89,7 +102,7 @@ function Menu(props) {
         <Text style={styles.subtitle}>Fullstack Developer</Text>
       </View>
       <TouchableOpacity
-        onPress={close}
+        onPress={props.closeMenu}
         style={{
           position: 'absolute',
           top: 120,
@@ -116,7 +129,7 @@ function Menu(props) {
   );
 }
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
 
 const styles = StyleSheet.create({
   container: {

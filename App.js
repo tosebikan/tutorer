@@ -7,7 +7,13 @@ const initialState = {
   action: 'openMenu'
 };
 
-const reducer = (state = initialState) => {
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'CLOSE_MENU':
+      return {
+        action: 'closeMenu'
+      };
+  }
   return state;
 };
 const store = createStore(reducer);
