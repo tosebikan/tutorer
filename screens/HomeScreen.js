@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,7 +8,8 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  Animated
+  Animated,
+  Easing
 } from 'react-native';
 import Card from '../components/Card';
 // import * as Icon from '@expo/vector-icons';
@@ -34,9 +35,22 @@ function mapDispatchToProps(dispatch) {
 }
 
 function HomeScreen(props) {
-  const [height, setHeight] = useState(0);
+  const [scale, setTop] = useState(new Animated.Value(1));
+
+  useEffect(() => {
+    toggleMenu();
+  });
+
+  const toggleMenu = () => {
+    if (props.action === 'openMenu') {
+      Animated.spring(scale, {
+        toValue: 0.9,
+        useNativeDriver: true
+      }).start();
+    }
+  };
   return (
-    <View style={styles.container}>
+    <Animated.View style={styles.container}>
       <Menu />
       <SafeAreaView>
         <ScrollView>
@@ -104,7 +118,7 @@ function HomeScreen(props) {
           ))}
         </ScrollView>
       </SafeAreaView>
-    </View>
+    </Animated.View>
   );
 }
 
