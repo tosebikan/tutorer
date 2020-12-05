@@ -5,7 +5,6 @@ import {
   Text,
   SafeAreaView,
   View,
-  Image,
   ScrollView,
   TouchableOpacity,
   Animated,
@@ -18,6 +17,7 @@ import Logo from '../components/Logo';
 import Course from '../components/Course';
 import Menu from '../components/Menu';
 import { connect } from 'react-redux';
+import Avatar from '../components/Avatar';
 
 function mapStateToProps(state) {
   return {
@@ -102,10 +102,7 @@ function HomeScreen(props) {
                 style={styles.avatarContainer}
                 onPress={props.openMenu}
               >
-                <Image
-                  source={require('../assets/avatar.jpg')}
-                  style={styles.avatar}
-                />
+                <Avatar />
               </TouchableOpacity>
               <Text style={styles.title}>Welcome,</Text>
               <Text style={styles.name}>Tolu</Text>
@@ -186,9 +183,6 @@ const styles = StyleSheet.create({
     paddingLeft: 80
   },
   avatar: {
-    height: 44,
-    width: 44,
-    borderRadius: 22,
     marginLeft: 20
   },
   avatarContainer: {
