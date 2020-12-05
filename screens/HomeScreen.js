@@ -186,7 +186,8 @@ const styles = StyleSheet.create({
     marginLeft: 20
   },
   avatarContainer: {
-    position: 'absolute'
+    position: 'absolute',
+    left: 20
   },
   title: {
     fontSize: 16,
