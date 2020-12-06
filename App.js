@@ -2,6 +2,8 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import HomeScreen from './screens/HomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from './navigator/AppNavigator';
 
 const initialState = {
   action: '',
@@ -32,7 +34,9 @@ const store = createStore(reducer);
 function App() {
   return (
     <Provider store={store}>
-      <HomeScreen />
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
     </Provider>
   );
 }
