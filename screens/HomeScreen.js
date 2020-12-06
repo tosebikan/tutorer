@@ -140,7 +140,7 @@ function HomeScreen(props) {
                   caption={card.caption}
                   subtitle={card.subtitle}
                   onPress={() =>
-                    props.navigation.push('Section', {
+                    props.navigation.navigate('SectionScreen', {
                       title: card.title
                     })
                   }
@@ -180,7 +180,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f0f3f5',
-    borderRadius: 20,
+    // borderRadius: 20,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
     overflow: 'hidden'
   },
   titleBar: {

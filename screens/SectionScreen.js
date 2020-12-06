@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
 function SectionScreen(props) {
-  const title = props.route.params.title;
+  // const { title } = props.route.params;
   return (
     <View style={styles.container}>
-      <Text>Section Screen {title}</Text>
+      <Text>Section Screen </Text>
       <Button title="close" onPress={() => props.navigation.goBack()} />
     </View>
   );

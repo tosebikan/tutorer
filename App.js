@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 // import HomeScreen from './screens/HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './navigator/AppNavigator';
+// import TabNavigator from './navigator/TabNavigator';
 
 const initialState = {
   action: '',

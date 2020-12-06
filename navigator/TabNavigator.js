@@ -3,13 +3,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import SectionScreen from '../screens/SectionScreen';
+import * as Icon from '@expo/vector-icons';
 
 const HomeStack = createStackNavigator();
 function Home() {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
-      <HomeStack.Screen name="SectionScreen" component={SectionScreen} />
+    <HomeStack.Navigator mode="modal">
+      <HomeStack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
     </HomeStack.Navigator>
   );
 }
@@ -35,10 +39,51 @@ function Projects() {
 const TabStack = createBottomTabNavigator();
 function TabNavigator() {
   return (
-    <TabStack.Navigator>
-      <TabStack.Screen name="Home" component={Home} />
-      <TabStack.Screen name="Courses" component={Courses} />
-      <TabStack.Screen name="Projects" component={Projects} />
+    <TabStack.Navigator
+      tabBarOptions={{
+        activeTintColor: '#4775f2',
+        inactiveTintColor: 'gray'
+      }}
+    >
+      <TabStack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon.Ionicons
+              name="ios-home"
+              size={26}
+              color={focused ? '#4775f2' : 'gray'}
+            />
+          )
+        }}
+      />
+      <TabStack.Screen
+        name="Courses"
+        component={Courses}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon.Ionicons
+              name="ios-albums"
+              size={26}
+              color={focused ? '#4775f2' : 'gray'}
+            />
+          )
+        }}
+      />
+      <TabStack.Screen
+        name="Projects"
+        component={Projects}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon.Ionicons
+              name="ios-folder"
+              size={20}
+              color={focused ? '#4775f2' : 'gray'}
+            />
+          )
+        }}
+      />
     </TabStack.Navigator>
   );
 }
