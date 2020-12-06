@@ -17,6 +17,10 @@ function SectionScreen(props) {
       <StatusBar hidden />
       <View style={styles.cover}>
         <Image style={styles.image} source={section.image} />
+        <View style={styles.wrapper}>
+          <Image source={section.logo} style={styles.logo} />
+          <Text style={styles.subtitle}>{section.subtitle}</Text>
+        </View>
         <Text style={styles.title}>{section.title}</Text>
         <Text style={styles.caption}>{section.caption}</Text>
       </View>
@@ -84,5 +88,22 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 1
+  },
+  wrapper: {
+    flexDirection: 'row',
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    alignItems: 'center'
+  },
+  logo: {
+    height: 24,
+    width: 24
+  },
+  subtitle: {
+    marginLeft: 5,
+    fontSize: 16,
+    color: 'rgba(255,255,255, 0.8)',
+    textTransform: 'uppercase'
   }
 });
