@@ -20,7 +20,10 @@ function SectionScreen(props) {
         <Text style={styles.title}>{section.title}</Text>
         <Text style={styles.caption}>{section.caption}</Text>
       </View>
-      <TouchableOpacity style={{ position: 'absolute', top: 20, right: 20 }}>
+      <TouchableOpacity
+        style={{ position: 'absolute', top: 20, right: 20 }}
+        onPress={() => props.navigation.goBack()}
+      >
         <View style={styles.closeView}>
           <Icon.Ionicons
             name="ios-close"
