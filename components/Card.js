@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default function Card(props) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.cover}>
         <Image source={props.image} style={styles.image} />
         <Text style={styles.title}>{props.title}</Text>
@@ -16,7 +16,7 @@ export default function Card(props) {
           <Text style={styles.subtitle}>{props.subtitle}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
