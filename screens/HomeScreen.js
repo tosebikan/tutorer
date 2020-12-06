@@ -21,7 +21,8 @@ import Avatar from '../components/Avatar';
 
 function mapStateToProps(state) {
   return {
-    action: state.action
+    action: state.action,
+    name: state.name
   };
 }
 
@@ -105,7 +106,7 @@ function HomeScreen(props) {
                 <Avatar />
               </TouchableOpacity>
               <Text style={styles.title}>Welcome,</Text>
-              <Text style={styles.name}>Tolu</Text>
+              <Text style={styles.name}>{props.name}</Text>
               <NotificationIcon
                 style={{ position: 'absolute', right: 20, top: 5 }}
               />

@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    name: state.props
+    name: state.name
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setName: (name) =>
+    updateName: (name) =>
       dispatch({
-        type: 'SET_NAME',
+        type: 'UPDATE_NAME',
         payload: name
       })
   };
 }
 
-function Avatar() {
+function Avatar(props) {
   const [photo, setPhoto] = useState(
     'https://health.utah.edu/themes/custom/theme_uou/img/placeholder-user.png'
   );
@@ -29,6 +29,9 @@ function Avatar() {
       .then((res) => {
         let profilePic = res.results[0].picture.thumbnail;
         setPhoto(profilePic);
+
+        let name = res.results[0].name.first;
+        props.updateName(name);
       });
   }, []);
 
