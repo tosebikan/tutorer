@@ -16,7 +16,7 @@ function AppNavigator() {
       <Stack.Screen
         name="Section"
         component={SectionScreen}
-        options={{ title: 'Section' }}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
