@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import SectionScreen from '../screens/SectionScreen';
+import CoursesScreen from '../screens/CoursesScreen';
+import ProjectsScreen from '../screens/ProjectsScreen';
 import * as Icon from '@expo/vector-icons';
 
 const HomeStack = createStackNavigator();
@@ -22,7 +24,7 @@ const CoursesStack = createStackNavigator();
 function Courses() {
   return (
     <CoursesStack.Navigator>
-      <CoursesStack.Screen name="CoursesScreen" component={SectionScreen} />
+      <CoursesStack.Screen name="CoursesScreen" component={CoursesScreen} />
     </CoursesStack.Navigator>
   );
 }

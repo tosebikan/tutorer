@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
-function ProjectScreen(props) {
+function ProjectsScreen(props) {
   // const { title } = props.route.params;
   return (
     <View style={styles.container}>
@@ -11,7 +11,7 @@ function ProjectScreen(props) {
   );
 }
 
-export default ProjectScreen;
+export default ProjectsScreen;
 
 const styles = StyleSheet.create({
   container: {
