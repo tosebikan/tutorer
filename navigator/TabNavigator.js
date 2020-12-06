@@ -33,7 +33,7 @@ const ProjectsStack = createStackNavigator();
 function Projects() {
   return (
     <ProjectsStack.Navigator>
-      <ProjectsStack.Screen name="ProjectScreen" component={SectionScreen} />
+      <ProjectsStack.Screen name="ProjectScreen" component={ProjectsScreen} />
     </ProjectsStack.Navigator>
   );
 }

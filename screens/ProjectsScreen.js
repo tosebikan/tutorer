@@ -5,7 +5,7 @@ function ProjectsScreen(props) {
   // const { title } = props.route.params;
   return (
     <View style={styles.container}>
-      <Text>Courses Screen</Text>
+      <Text>Projects Screen</Text>
       <Button title="close" onPress={() => props.navigation.goBack()} />
     </View>
   );
