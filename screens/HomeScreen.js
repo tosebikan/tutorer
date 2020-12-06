@@ -141,7 +141,7 @@ function HomeScreen(props) {
                   subtitle={card.subtitle}
                   onPress={() =>
                     props.navigation.navigate('SectionScreen', {
-                      title: card.title
+                      section: card
                     })
                   }
                 />
