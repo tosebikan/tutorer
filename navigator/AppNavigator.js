@@ -7,9 +7,17 @@ const Stack = createStackNavigator();
 
 function AppNavigator() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Section" component={SectionScreen} />
+    <Stack.Navigator mode="modal">
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Section"
+        component={SectionScreen}
+        options={{ title: 'Section' }}
+      />
     </Stack.Navigator>
   );
 }

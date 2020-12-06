@@ -139,9 +139,11 @@ function HomeScreen(props) {
                   logo={card.logo}
                   caption={card.caption}
                   subtitle={card.subtitle}
-                  onPress={props.navigation.navigate('Section', {
-                    title: card.title
-                  })}
+                  onPress={() =>
+                    props.navigation.push('Section', {
+                      title: card.title
+                    })
+                  }
                 />
               ))}
             </ScrollView>
