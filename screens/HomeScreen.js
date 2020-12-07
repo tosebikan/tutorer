@@ -8,7 +8,8 @@ import {
   ScrollView,
   TouchableOpacity,
   Animated,
-  Easing
+  Easing,
+  ActivityIndicator
 } from 'react-native';
 import Card from '../components/Card';
 // import * as Icon from '@expo/vector-icons';
@@ -122,7 +123,7 @@ function HomeScreen(props) {
       </View>
     );
   }
-  console.log(data);
+  console.log(data, loading);
   return (
     <View style={styles.rootView}>
       <Menu />
@@ -170,6 +171,7 @@ function HomeScreen(props) {
               ))}
             </ScrollView>
             <Text style={styles.subtitle}>Continue Learning</Text>
+            {loading ? <ActivityIndicator size="large" color="black" /> : null}
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
