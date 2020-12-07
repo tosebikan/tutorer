@@ -175,7 +175,7 @@ function HomeScreen(props) {
               showsHorizontalScrollIndicator={false}
               style={{ paddingBottom: 30 }}
             >
-              {cards.map((card, index) => (
+              {data.cardsCollection.items.map((card, index) => (
                 <Card
                   key={index}
                   title={card.title}
@@ -190,6 +190,21 @@ function HomeScreen(props) {
                   }
                 />
               ))}
+              {/*cards.map((card, index) => (
+                <Card
+                  key={index}
+                  title={card.title}
+                  image={card.image}
+                  logo={card.logo}
+                  caption={card.caption}
+                  subtitle={card.subtitle}
+                  onPress={() =>
+                    props.navigation.navigate('SectionScreen', {
+                      section: card
+                    })
+                  }
+                />
+              ))*/}
             </ScrollView>
             <Text style={styles.subtitle}>Popular courses</Text>
             <View style={{ alignItems: 'center' }}>
