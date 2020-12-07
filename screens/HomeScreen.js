@@ -18,6 +18,39 @@ import Course from '../components/Course';
 import Menu from '../components/Menu';
 import { connect } from 'react-redux';
 import Avatar from '../components/Avatar';
+import { gql, useQuery } from '@apollo/client';
+
+const cardsCollection = gql`
+  {
+    cardsCollection {
+      items {
+        title
+        subtitle
+        caption
+        image {
+          title
+          description
+          contentType
+          fileName
+          size
+          url
+          width
+          height
+        }
+        logo {
+          title
+          description
+          contentType
+          fileName
+          size
+          url
+          width
+          height
+        }
+      }
+    }
+  }
+`;
 
 function mapStateToProps(state) {
   return {
@@ -79,6 +112,17 @@ function HomeScreen(props) {
 
     // StatusBar.setStatusBarStyle('dark');
   };
+
+  const { loading, error, data } = useQuery(cardsCollection);
+
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+  console.log(data);
   return (
     <View style={styles.rootView}>
       <Menu />
