@@ -5,6 +5,16 @@ import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './navigator/AppNavigator';
 // import TabNavigator from './navigator/TabNavigator';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://graphql.contentful.com/content/v1/spaces/oxht13cue6kb/',
+  cache: new InMemoryCache(),
+  credentials: 'same-origin',
+  headers: {
+    Authorization: 'Bearer BY4aJMYcjsJR0wemLoq9VC-FCplWi-Sy3wb0NhMWUoE'
+  }
+});
 
 const initialState = {
   action: '',
@@ -34,11 +44,13 @@ const store = createStore(reducer);
 
 function App() {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <AppNavigator />
-      </NavigationContainer>
-    </Provider>
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
+      </Provider>
+    </ApolloProvider>
   );
 }
 
