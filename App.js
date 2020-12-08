@@ -6,13 +6,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './navigator/AppNavigator';
 // import TabNavigator from './navigator/TabNavigator';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { TOKEN, SPACE_ID } from '@env';
+
+console.log('token', TOKEN, SPACE_ID);
 
 const client = new ApolloClient({
-  uri: 'https://graphql.contentful.com/content/v1/spaces/oxht13cue6kb/',
+  uri: `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/`,
   cache: new InMemoryCache(),
   credentials: 'same-origin',
   headers: {
-    Authorization: 'Bearer BY4aJMYcjsJR0wemLoq9VC-FCplWi-Sy3wb0NhMWUoE'
+    Authorization: `Bearer ${TOKEN}`
   }
 });
 

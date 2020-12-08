@@ -172,6 +172,7 @@ function HomeScreen(props) {
             </ScrollView>
             <Text style={styles.subtitle}>Continue Learning</Text>
             {loading ? <ActivityIndicator size="large" color="black" /> : null}
+            {error ? <Text> Error...</Text> : null}
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
