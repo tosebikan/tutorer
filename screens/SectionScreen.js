@@ -8,6 +8,7 @@ import {
   StatusBar
 } from 'react-native';
 import * as Icon from '@expo/vector-icons';
+import { WebView } from 'react-native-webview';
 
 function SectionScreen(props) {
   const { section } = props.route.params;
@@ -37,6 +38,9 @@ function SectionScreen(props) {
           />
         </View>
       </TouchableOpacity>
+      <View>
+        <WebView source={{ uri: 'https://expo.io' }} />
+      </View>
     </View>
   );
 }
