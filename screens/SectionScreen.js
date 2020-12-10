@@ -38,7 +38,7 @@ function SectionScreen(props) {
           />
         </View>
       </TouchableOpacity>
-      <View>
+      <View style={styles.content}>
         <WebView source={{ uri: 'https://expo.io' }} />
       </View>
     </View>
@@ -109,5 +109,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'rgba(255,255,255, 0.8)',
     textTransform: 'uppercase'
+  },
+  content: {
+    height: '100%'
   }
 });
